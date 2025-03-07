@@ -1,5 +1,5 @@
 """
-title: Filtro de Contenido Inapropiado para Ambiente Profesional COELSA
+title: Filtro de Contenido Inapropiado para Ambiente Profesional
 author: Gastón Guevara
 date: 07-03-2025
 version: 1.0
