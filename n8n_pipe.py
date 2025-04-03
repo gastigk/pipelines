@@ -437,6 +437,42 @@
         800,
         880
       ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "file_id",
+              "value": "={{ $json.path }}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "name": "Set File ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        1000,
+        820
+      ],
+      "id": "set_file_id"
+    },
+    {
+      "parameters": {
+        "chunkSize": 500,
+        "chunkOverlap": 50,
+        "textProperty": "text"
+      },
+      "name": "Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacter",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        880
+      ],
+      "id": "text_splitter"
     }
   ],
   "pinData": {},
@@ -500,7 +536,7 @@
       "main": [
         [
           {
-            "node": "Qdrant Vector Store Insert",
+            "node": "Text Splitter",
             "type": "main",
             "index": 0
           }
@@ -634,6 +670,24 @@
           {
             "node": "Extract Document Text",
             "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set File ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
             "index": 0
           }
         ]
